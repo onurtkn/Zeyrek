@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TrayIcon.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TrayIcon_ZWebService_ReadNotifications" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.0.154/ReadNotifications.asmx</Value>
+    </Setting>
+    <Setting Name="TrayIcon_ZWebServiceSerial_InsertSerial" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.0.154/InsertSerial.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ZReadNotification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Date_" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZReadNotificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ZReadNotificationResult" type="tns:ArrayOfZNotification" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfZNotification">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ZNotification" nillable="true" type="tns:ZNotification" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ZNotification">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RepeatPeriod" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupOrUser" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NotificationGroup" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShowDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ZReadNotificationSoapIn">
+    <wsdl:part name="parameters" element="tns:ZReadNotification" />
+  </wsdl:message>
+  <wsdl:message name="ZReadNotificationSoapOut">
+    <wsdl:part name="parameters" element="tns:ZReadNotificationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReadNotificationsSoap">
+    <wsdl:operation name="ZReadNotification">
+      <wsdl:input message="tns:ZReadNotificationSoapIn" />
+      <wsdl:output message="tns:ZReadNotificationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReadNotificationsSoap" type="tns:ReadNotificationsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ZReadNotification">
+      <soap:operation soapAction="http://tempuri.org/ZReadNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReadNotificationsSoap12" type="tns:ReadNotificationsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ZReadNotification">
+      <soap12:operation soapAction="http://tempuri.org/ZReadNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReadNotifications">
+    <wsdl:port name="ReadNotificationsSoap" binding="tns:ReadNotificationsSoap">
+      <soap:address location="http://192.168.0.154/ReadNotifications.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReadNotificationsSoap12" binding="tns:ReadNotificationsSoap12">
+      <soap12:address location="http://192.168.0.154/ReadNotifications.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
