@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ZeyrekWeb.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ZeyrekWeb_NotificationWebReference_ReadNotifications" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.0.154/ReadNotifications.asmx</Value>
+    </Setting>
+    <Setting Name="ZeyrekWeb_TaskWebReference_ReadTask" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.0.154/ReadTask.asmx</Value>
+    </Setting>
+    <Setting Name="ZeyrekWeb_BusServiceWebReference_GetBusService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.0.154/GetBusService.asmx</Value>
+    </Setting>
+    <Setting Name="ZeyrekWeb_BirthDayWebReference_ReadBirthDays" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.0.154/ReadBirthDays.asmx</Value>
+    </Setting>
+    <Setting Name="ZeyrekWeb_PasswordWebReference_PasswordOperations" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.0.154/PasswordOperations.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="getBirthdayList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getBirthdayListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getBirthdayListResult" type="tns:ArrayOfZBirthD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfZBirthD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ZBirthD" nillable="true" type="tns:ZBirthD" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ZBirthD">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdSoyad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTarih" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getBirthdayListSoapIn">
+    <wsdl:part name="parameters" element="tns:getBirthdayList" />
+  </wsdl:message>
+  <wsdl:message name="getBirthdayListSoapOut">
+    <wsdl:part name="parameters" element="tns:getBirthdayListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReadBirthDaysSoap">
+    <wsdl:operation name="getBirthdayList">
+      <wsdl:input message="tns:getBirthdayListSoapIn" />
+      <wsdl:output message="tns:getBirthdayListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReadBirthDaysSoap" type="tns:ReadBirthDaysSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getBirthdayList">
+      <soap:operation soapAction="http://tempuri.org/getBirthdayList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReadBirthDaysSoap12" type="tns:ReadBirthDaysSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getBirthdayList">
+      <soap12:operation soapAction="http://tempuri.org/getBirthdayList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReadBirthDays">
+    <wsdl:port name="ReadBirthDaysSoap" binding="tns:ReadBirthDaysSoap">
+      <soap:address location="http://192.168.0.154/ReadBirthDays.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReadBirthDaysSoap12" binding="tns:ReadBirthDaysSoap12">
+      <soap12:address location="http://192.168.0.154/ReadBirthDays.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
